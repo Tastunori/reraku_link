@@ -1,0 +1,20 @@
+
+<% @user ||= @current_user %>
+<div class="stats">
+  <span class="following">
+  <a href="<%= following_user_path(@user) %>">
+    <strong id="following" ">
+      <a class="link_follow"><%= @user.following.count  %></a>
+    </strong>
+    <%= link_to("フォロー", "/users/#{@user.id}/show_following",class:"link_follow")  %>
+  </a>
+  </span>
+  <span class="follower">
+  <a href="<%= followers_user_path(@user) %>">
+    <strong id="followers" >
+      <a class="link_follow"><%= @user.followers.count %> </a>
+    </strong>
+    <%= link_to("フォロワー", "/users/#{@user.id}/show_follower",class:"link_follow") %>
+  </a>
+  </span>
+</div>

@@ -1,0 +1,19 @@
+
+
+<h1><%= @user.name %> のフォロー</h1>
+<% if @users.any? %>
+ <% @users.each do |user| %>
+  <div class="user_index">
+   <div class="user_left">
+    <% if user.image.attached? %>
+      <img <%= image_tag user.image %></img>
+     <% else %>
+      <img <%=image_tag "default_img.jpg" %></img>
+     <% end %>
+  </div>
+   <div class="user_right">
+    <%= link_to(user.name,"/users/#{user.id}/profile",class:"user_name") %>
+   </div>
+  </div>
+  <% end %>
+ <% end %>

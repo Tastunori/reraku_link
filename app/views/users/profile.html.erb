@@ -1,0 +1,54 @@
+
+<div class= "user_profile">
+  <div class= "profile_left" >
+    <div class="profile_image">
+    <% if @user.image.attached? %>
+     <img <%= image_tag @user.image %></img>
+    <% else %>
+     <img <%=image_tag "default_img.jpg" %></img>
+    <% end %>
+   </div>
+   <div class="profile_name"><%= @user.name %></div>
+  </div>
+   <div class= "profile_right">
+     <section class="users/stats">
+      <%= render 'users/stats' %>
+     </section>
+     <span class= "store_name" >
+      <a>所属店舗: <%= @user.store_name %> </a>
+     </span>
+     <span class="position">
+     <a>役職: <%= @user.position %></a>
+     </span>
+     <div class="introduce">
+       <p><%= @user.introduce %></p>
+     </div>
+     <div class="follow_btn_container">
+   <%= render 'users/follow_form'  %>
+    </div>
+ </div>
+</div>
+
+ <div class="posts_container">
+  <% @posts.each do |post| %>
+   <div class="each_posts">
+     <div class="user_image">
+      <% if @user.image.attached? %>
+       <img <%=image_tag @user.image %></img>
+      <% else %>
+       <img <%=image_tag "default_img.jpg" %></img>
+      <% end %>
+     </div>
+       <%= link_to(@user.name,"/users/#{@user.id}/profile",class:"posts_user_name") %>
+       <div class="post_tag">
+        <%= post.tag_list %>
+       </div>
+       <div class="posts_content">
+         <%= post.content  %>
+       </div>
+       <div class="created_at">
+         <%= time_ago_in_words(post.created_at) + "前" %>
+       </div>
+   </div>
+  <% end %>
+ </div>

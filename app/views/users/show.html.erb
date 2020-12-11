@@ -1,0 +1,57 @@
+
+<div class= "user_profile">
+  <div class= "profile_left" >
+   <div class="profile_image">
+   <% if @current_user.image.attached? %>
+    <img <%= image_tag @current_user.image %></img>
+   <% else %>
+    <img <%=image_tag "default_img.jpg" %></img>
+   <% end %>
+  </div>
+    <div class="profile_name"><%= @current_user.name %></div>
+  </div>
+   <div class= "profile_right">
+     <section class="users/stats">
+      <%= render 'users/stats' %>
+     </section>
+     <span class= "store_name" >
+      <a>所属店舗: <%= @current_user.store_name %> </a>
+     </span>
+     <span class="position">
+     <a>役職: <%= @current_user.position %></a>
+     </span>
+     <div class="introduce">
+       <p><%= @current_user.introduce %></p>
+     </div>
+     <div class= "edit_profile">
+       <%= link_to("編集　", "/users/#{@current_user.id}/edit", class:"edit") %>
+     </div>
+    </div>
+ </div>
+
+ <div class="posts_container">
+   <% @posts.each do |post| %>
+    <div class="each_posts">
+       <div class="user_image">
+        <% if @current_user.image.attached? %>
+         <img <%=image_tag @current_user.image %></img>
+        <% else %>
+         <img <%=image_tag "default_img.jpg" %></img>
+        <% end %>
+       </div>
+       <div class="posts_user_name">
+       <%= @current_user.name %>
+       </div>
+       <div class="post_tag">
+        <%= post.tag_list %>
+       </div>
+       <div class="posts_content">
+         <%= post.content  %>
+       </div>
+       <div class="created_at">
+         <%= time_ago_in_words(post.created_at) + "前" %>
+       </div>
+          <%= link_to("削除","/posts/#{post.id}/destroy",{method:"delete", class:"destroy_post"})%>
+      </div>
+   <% end %>
+ </div>

@@ -1,0 +1,18 @@
+
+<h1>投稿する</h1>
+
+<%= form_tag("/posts/new_post") do %>
+
+<div class="message_form">
+  <div class="tag_form">
+    <input name="tag_list" class="post_tag" placeholder="プライベート, KA, NKA, 追加提案, POP, 店舗関連" ></input>
+  </div>
+  <div class="post_form">
+    <textarea name="content" class="post_content"></textarea>
+  </div>
+
+  <input type="submit" value="投稿" class="new_bottun">
+
+</div>
+
+<% end %>

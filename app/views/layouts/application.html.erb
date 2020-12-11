@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RerakuApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+<div class="footerFixed">
+<header>
+      <div class="header">
+        <ul>
+        <% if @current_user %>
+        <li>
+          <%= link_to("ログアウト", "/logout", class:"link_to",method: :post) %>
+        </li>
+        <li>
+         <%= link_to("投稿一覧" ,"/posts/index",class:"link_to") %>
+        </li>
+        <li>
+         <%= link_to("投稿する","/posts/create",class:"link_to") %>
+        </li>
+        <li>
+          <%= link_to("ユーザー一覧", "/users/index",class:"link_to") %>
+        </li>
+        <li>
+         <%= link_to(@current_user.name, "/users/#{@current_user.id}",class:"link_to") %>
+        </li>
+        <% else %>
+        <li>
+        　<%= link_to("新規登録","/sign_up",class:"link_to") %>
+        </li>
+        <li>
+        　<%= link_to("ログイン","/login_form",class:"link_to" ) %>
+        </li>
+        <li>
+        　<%= link_to("Re.Ra.Ku Link とは？","/top", class:"link_to") %>
+        </li>
+        <% end %>
+        </ul>
+      </div>
+    </header>
+
+  <body>
+    <%= yield %>
+
+  </body>
+
+  <footer>
+    <p>re.ra.ku link</P>
+  </footer>
+</div>
+</html>

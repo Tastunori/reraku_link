@@ -1,0 +1,26 @@
+
+<h1><%= @current_user.name %></h1>
+<div class="edit_profile">
+<div class="chage_profile_image">
+
+  <%= form_with scope: :user, url: users_update_path, local: true  do |form|%>
+    <%= form.file_field :image %>
+    <%= form.submit value="画像変更"   %>
+  <% end %>
+</div>
+
+
+<div class="change_profile">
+  <%= form_tag("/users/#{@current_user.id}/update_profile") do %>
+
+  <div class="edit_profile_box">所属店舗</div>
+  <input name="store_name"  value="<%= @current_user.store_name %>" >
+　<div class="edit_profile_box">役職</div>
+  <input name="position"  value="<%= @current_user.position %>">
+  <div class="edit_profile_box">自己紹介</div>
+  <textarea name="introduce" class="edit_introduce"><%= @current_user.introduce %></textarea>
+
+    <p><input type="submit" value="変更" class="edit_btn"></p>
+   <% end %>
+ </div>
+</div>

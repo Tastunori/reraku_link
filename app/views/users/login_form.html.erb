@@ -1,0 +1,22 @@
+<div class= container>
+    
+<h1>ログイン</h1>
+
+<div class="form">
+<%= form_tag("/login") do %>
+    <p>ユーザー名</p>
+    <input name="name">
+    
+    <p>社員番号</p>
+    <input name="employee_num">
+    
+    <div class="login_password">
+    <p>パスワード</p>
+    <input type="password" name="password_digest">
+    </div>
+
+  <p><input type="submit" value="ログイン" class="login_button"></p>
+  </div>    
+ <% end %>
+ 
+ </div>
