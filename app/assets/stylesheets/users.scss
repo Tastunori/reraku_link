@@ -22,7 +22,7 @@
  width: 50%;
  margin-left:auto;
  margin-right: auto;
- background-color:#FFFFDD ;
+ background-color: white ;
  margin-top:10px;
  border: 1px solid;
  border-color: #DDDDDD;
@@ -52,7 +52,7 @@
   margin-left: auto;
   margin-right: auto;
   height: 240px;
-  background-color: #FFFFDD;
+  background-color: white;
   border: 1px solid;
   border-color: #DDDDDD;
   border-radius: 10px;
@@ -235,4 +235,8 @@
 .edit_btn{
   margin-top: 20px;
   margin-left: 150px;
+}
+
+.user_index_container{
+  margin-bottom: 60px;
 }
